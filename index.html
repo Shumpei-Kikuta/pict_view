@@ -18,9 +18,25 @@
   <div class="container">
     <div id="img_unit">
     </div>
+
+    <!-- <div id="vue_unit"> -->
+      <!-- {{message}} -->
+    <!-- </div> -->
   </div>
 
   <script src="js/jquery.min.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+  <!-- <script>
+  var app=new Vue({
+    el: "#vue_unit",
+    data: {
+      message: "Vue.jsで書き換えました．"
+    }
+  });
+
+  </script> -->
+
   <script>
     $.getJSON("https://h2o-space.com/htmlbook/images.php",function(data){
       for(var i=0;i<data.length;i++){
@@ -42,7 +58,7 @@
       }
       }
     );
-    $('#img_unit').html("ここに画像リストが表示されます．").css("margin-top","100px");
+    // $('#img_unit').html("ここに画像リストが表示されます．").css("margin-top","100px");
     // メソッドチェーン
   </script>
 <!--
