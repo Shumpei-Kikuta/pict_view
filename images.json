@@ -1,0 +1,16 @@
+[
+  {"path": "img/img1.png",
+  "name": "deeplearning",
+  "caption": "良書です"
+  },
+
+  {"path": "img/img2.png",
+  "name": "machinelearning",
+  "caption": "機械学習について網羅"
+  },
+
+  {"path": "img/img3.png",
+  "name": "secureWebApplication",
+  "caption": "良書らしいです．"
+  }
+]

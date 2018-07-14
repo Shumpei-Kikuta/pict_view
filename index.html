@@ -15,47 +15,68 @@
   </header>
 
 
-  <div id="img_unit">
+  <div class="container">
+    <div id="img_unit">
+    </div>
   </div>
 
+  <script src="js/jquery.min.js"></script>
   <script>
-    let images = [
-      {"path": "img/img1.png",
-      "name": "deeplearning",
-      "caption": "良書です"
-      },
+    $.getJSON("https://h2o-space.com/htmlbook/images.php",function(data){
+      for(var i=0;i<data.length;i++){
+        var one_data = data[i];
 
-      {"path": "img/img2.png",
-      "name": "machinelearning",
-      "caption": "機械学習について網羅"
-      },
+        var img = document.createElement("img")
+        img.setAttribute("src",one_data.path);
 
-      {"path": "img/img3.png",
-      "name": "secureWebApplication",
-      "caption": "良書らしいです．"
+          caption = document.createElement("div");
+          caption.className = "inner";
+          caption.innerHTML = "<p>" + one_data.caption + "<span>" + one_data.name + "</span>" + "</p>";
+
+          div = document.createElement("div");
+          div.className = "photo";
+          div.appendChild(img);
+          div.appendChild(caption);
+
+          document.getElementById("img_unit").appendChild(div);
       }
-    ];
+      }
+    );
+    $('#img_unit').html("ここに画像リストが表示されます．").css("margin-top","100px");
+    // メソッドチェーン
+  </script>
+<!--
+  <script>
 
-    let img;
-    let caption;
-    let div;
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET","https://h2o-space.com/htmlbook/images.php");
+    ajax.responseType = "json";
+    ajax.send(null);
 
-    for (var i=0;i<images.length;i++ ){
-      img = document.createElement("img");
-      img.setAttribute("src",images[i].path);
+    ajax.onreadystatechange = function(){
+      if (ajax.readyState == XMLHttpRequest.DONE && ajax.status == 200){
+        for (var i = 0; i<this.response.length; i++){
+          var data = this.response[i];
 
-      caption = document.createElement("div");
-      caption.className = "inner";
-      caption.innerHTML = "<p>" + images[i].caption + "<span>" + images[i].name + "</span>" + "</p>";
+          var img = document.createElement("img")
+          img.setAttribute("src",data.path);
 
-      div = document.createElement("div");
-      div.className = "photo";
-      div.appendChild(img);
-      div.appendChild(caption);
+            caption = document.createElement("div");
+            caption.className = "inner";
+            caption.innerHTML = "<p>" + data.caption + "<span>" + data.name + "</span>" + "</p>";
 
-      document.getElementById("img_unit").appendChild(div);
+            div = document.createElement("div");
+            div.className = "photo";
+            div.appendChild(img);
+            div.appendChild(caption);
+
+            document.getElementById("img_unit").appendChild(div);
+
+
+        }
+      }
     }
 
-    //alert(images[0].caption)
-  </script>
+  </script> -->
 </body>
+</html>

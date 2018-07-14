@@ -21,7 +21,7 @@ header h1{
   font-family: "Open Sans Condensed", sans-serif;
 }
 
-#img_unit{
+.container{
   max-width: 600px;
   margin: 0 auto;
   box-shadow: 0 0 3px rgba(0,0,0,0.3);
@@ -50,7 +50,10 @@ header h1{
 }
 
 img{
-  width: 100%;
-  margin: 0;
+  width: 100%;;
   vertical-align: top;
+}
+
+#img_unit{
+  margin-bottom: 100px;
 }
